@@ -4,4 +4,10 @@
 <br />
 <p>{{ project.description }}</p>
 
+<ul>
+  {% for tag in project.tags.all %}
+  <li>{{ tag }}</li>
+  {% endfor %}
+</ul>
+
 {% endblock content %}
