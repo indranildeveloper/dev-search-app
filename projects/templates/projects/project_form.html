@@ -11,15 +11,12 @@
 
           <form class="form" method="POST" enctype="multipart/form-data">
             {% csrf_token %} 
-              <!-- Input:Text -->
-            {% for field in form %}
-              <div class="form__field">
-                  <label for="formInput#text">{{ field.label }}</label>
-                  {{ field }}
-                  {% comment %} <input class="input input--text" id="formInput#text" type="text" name="text"
-                      placeholder="Enter text" /> {% endcomment %}
-              </div>
-            {% endfor %}
+              {% for field in form %}
+                <div class="form__field">
+                    <label for="formInput#text">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+              {% endfor %}
       
               <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
           </form>
