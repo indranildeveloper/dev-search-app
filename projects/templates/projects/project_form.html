@@ -1,26 +1,37 @@
-{% extends 'main.html' %} 
+{% extends 'main.html' %}
 
 {% block content %}
 
-<!-- Main Section -->
 <main class="formPage my-xl">
   <div class="content-box">
-      <div class="formWrapper">
-          <a class="backButton" href="#"><i class="fa-solid fa-chevron-left"></i></a>
-          <br>
+    <div class="formWrapper">
+      <a class="backButton" href="{% url 'account' %}"><i class="fa-solid fa-chevron-left"></i></a>
+      <br>
 
-          <form class="form" method="POST" enctype="multipart/form-data">
-            {% csrf_token %} 
-              {% for field in form %}
-                <div class="form__field">
-                    <label for="formInput#text">{{ field.label }}</label>
-                    {{ field }}
-                </div>
-              {% endfor %}
-      
-              <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
-          </form>
-      </div>
+      <form class="form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form__field">
+          <label for="formInput#text">{{ field.label }}</label>
+          {{ field }}
+        </div>
+        {% endfor %}
+
+        <div class="form__field">
+          {% for tag in project.tags.all %}
+          <div class="project-tag tag tag--pill tag--main" data-tag="{{ tag.id }}" data-project="{{project.id}}">
+            {{tag.name}}<i class="fa fa-times"></i></div>
+          {% endfor %}
+        </div>
+
+        <div class="form__field">
+          <label for="formInput#text">Tags</label>
+          <textarea name="newtags" class="input" placeholder="Add Tags"></textarea>
+        </div>
+
+        <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+      </form>
+    </div>
   </div>
 </main>
 
