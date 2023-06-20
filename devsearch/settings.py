@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-l%ia5^=!%(p1(d)r37q=xv67-&ot!x6=3$mo=k!28z_th&=b#g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearch-e54p.onrender.com',
                  'https://devsearch-e54p.onrender.com']
 
 
